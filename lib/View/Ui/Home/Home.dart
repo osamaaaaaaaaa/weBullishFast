@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 30,
+                  height: 40,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,6 +66,9 @@ class Home extends StatelessWidget {
                     )
                   ],
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
                 Container(
                   margin: const EdgeInsets.only(
                     left: 10,
@@ -89,7 +92,7 @@ class Home extends StatelessWidget {
                         dataCount: controller.topNotifications.length,
                       ),
                 SizedBox(
-                  height: 50,
+                  height: 20,
                 ),
                 InkWell(
                   // onTap: () {
@@ -151,6 +154,9 @@ class Home extends StatelessWidget {
                       }
                       return CircularProgressIndicator();
                     }),
+                const SizedBox(
+                  height: 10,
+                ),
                 Container(
                   margin: const EdgeInsets.only(
                     left: 10,
@@ -205,6 +211,9 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 liveSocial(),
+                const SizedBox(
+                  height: 10,
+                ),
                 Container(
                   margin: const EdgeInsets.only(
                     left: 10,
@@ -260,6 +269,9 @@ class Home extends StatelessWidget {
                       }
                       return CircularProgressIndicator();
                     }),
+                const SizedBox(
+                  height: 10,
+                ),
                 Container(
                   margin: const EdgeInsets.only(
                     left: 10,

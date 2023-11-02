@@ -62,6 +62,20 @@ class alerts extends StatelessWidget {
                                                   controller
                                                       .alertsList[index].image
                                                       .toString(),
+                                                  loadingBuilder: (context,
+                                                      child, loadingProgress) {
+                                                    if (loadingProgress ==
+                                                        null) {
+                                                      return child;
+                                                    }
+                                                    return Center(
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        backgroundColor:
+                                                            Colors.white,
+                                                      ),
+                                                    );
+                                                  },
                                                   width: Get.width * 0.2,
                                                 )
                                               : videoimageviww2(

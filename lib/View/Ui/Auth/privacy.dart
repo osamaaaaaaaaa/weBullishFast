@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:webullish_fast/View/Shared/TopAppBar.dart';
 
 import '../../../Helper/AppColors.dart';
 
@@ -7,17 +9,51 @@ class privacy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.color1,
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text('Privacy Policy', style: TextStyle(color: Colors.white)),
-      ),
+      //appBar:
+      // AppBar(
+      //   iconTheme: IconThemeData(color: Colors.white),
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      //   title: Text('Privacy Policy', style: TextStyle(color: Colors.white)),
+      // ),
+
       body: SingleChildScrollView(
-        child: Container(
-            padding: EdgeInsets.only(top: 50, left: 10, right: 10),
-            child: Text(
-              '''Privacy Policy for Webullish.com LLC
+        child: Column(
+          children: [
+            Container(
+              width: 20,
+            ),
+            Container(
+              width: Get.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    '',
+                    style: TextStyle(
+                        color: AppColors.gold,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Container(
+                    width: 20,
+                  )
+                ],
+              ),
+            ),
+            Container(
+                padding: EdgeInsets.only(top: 50, left: 10, right: 10),
+                child: Text(
+                  '''Privacy Policy for Webullish.com LLC
       1. INTRODUCTION
       At WWW.WEBULLISH.COM, accessible from https://webullish.com/#1517496583165-6a673847-ecc2, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by WWW.WEBULLISH.COM and how we use it.
       If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
@@ -86,8 +122,10 @@ class privacy extends StatelessWidget {
       Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
       
       WWW.WEBULLISH.COM does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records ''',
-              style: TextStyle(fontSize: 15, color: Colors.white),
-            )),
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                )),
+          ],
+        ),
       ),
     );
   }

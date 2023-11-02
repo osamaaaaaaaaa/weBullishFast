@@ -49,6 +49,7 @@ dependencies:
   dropdown_button2: ^2.3.9
   video_box: ^0.17.0
   modal_bottom_sheet: ^3.0.0-pre
+  introduction_screen: ^3.1.12
 
 dev_dependencies:
   flutter_test:

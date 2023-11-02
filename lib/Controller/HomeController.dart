@@ -60,7 +60,7 @@ class HomeController extends GetxController {
     // gettwitterLive();
     // getyoutubeLive();
     // getfaceLive();
-    // getSocialPages();
+    getSocialPages();
   }
 
   handleBootmNabBar(i) {

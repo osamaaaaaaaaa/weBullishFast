@@ -44,10 +44,10 @@ class subscribeController extends GetxController {
 
   Future<void> initPaymentSheet(context,
       {required int amount, required String planId}) async {
-    if (user == null) {
-      Get.to(() => register());
-      return;
-    }
+    // if (user == null) {
+    //   Get.to(() => register());
+    //   return;
+    // }
     try {
       // 1. create payment intent on the server
       final response = await http.post(
@@ -115,10 +115,10 @@ class subscribeController extends GetxController {
   }
 
   PayPalPay({required double amount, required String planId}) {
-    if (user == null) {
-      Get.to(() => register());
-      return;
-    }
+    // if (user == null) {
+    //   Get.to(() => register());
+    //   return;
+    // }
     UsePaypal(
         sandboxMode: false,
         clientId:

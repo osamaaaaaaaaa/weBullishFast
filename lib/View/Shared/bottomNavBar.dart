@@ -1,12 +1,15 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:webullish_fast/Controller/faq_controller.dart';
 
 import '../../Controller/AlertsController.dart';
 import '../../Controller/HomeController.dart';
 
 class bottomNavBar extends StatelessWidget {
   alertsController alert = Get.put(alertsController());
-
+  FaqController faqController = Get.put(FaqController());
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
