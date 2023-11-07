@@ -1,4 +1,4 @@
-package com.example.webullish_fast
+package com.webullish.bullish
 
 
 import io.flutter.embedding.android.FlutterActivity

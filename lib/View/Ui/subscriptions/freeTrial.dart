@@ -108,7 +108,7 @@ class freetrial extends StatelessWidget {
                     Get.to(() => register());
                     return;
                   }
-                  controller.addUserSubscribe('plan_ORj24ucdw5d7UU');
+                  controller.addUserSubscribe('plan_Of5tmhfkBZbwIi');
                 },
                 child: Container(
                   alignment: Alignment.center,

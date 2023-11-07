@@ -7,11 +7,13 @@ import 'package:webullish_fast/Binding/Binding.dart';
 import 'package:webullish_fast/View/Ui/Auth/LogIn.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'View/Ui/onboarding.dart';
 import 'firebase_options.dart';
 
 const stripePublishableKey = 'pk_live_hxiKd2gWhLR0sXINKQ5lv8As004zRq5swp';
 late FirebaseMessaging messaging;
 bool? islogin;
+int? onboard;
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +25,8 @@ void main(List<String> args) async {
 
   await FirebaseMessaging.instance.subscribeToTopic("topic");
   messaging = FirebaseMessaging.instance;
+  onboard = await prefs.getInt('onBoard');
+
   messaging.setForegroundNotificationPresentationOptions(
     alert: true,
     sound: true,
@@ -36,11 +40,7 @@ void main(List<String> args) async {
     provisional: true,
   );
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  islogin = await prefs.getBool('islogin');
 
-  // islogIn();
-  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  // messaging = FirebaseMessaging.instance;
   Stripe.publishableKey = stripePublishableKey;
   await Stripe.instance.applySettings();
   runApp(const app());
@@ -64,7 +64,7 @@ class app extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: binding(),
-      home: Login(),
+      home: onboard != 0 ? const PageOnBorarding() : Login(),
     );
   }
 }

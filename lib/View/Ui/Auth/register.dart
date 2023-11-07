@@ -30,7 +30,7 @@ class register extends StatelessWidget {
               ),
               Image.asset(AppImages.webullishLogo),
               const SizedBox(
-                height: 50,
+                height: 20,
               ),
               Container(
                 margin: const EdgeInsets.all(10),
@@ -69,9 +69,6 @@ class register extends StatelessWidget {
                 child: _city(
                     controller: controller,
                     width: MediaQuery.of(context).size.width),
-              ),
-              const SizedBox(
-                height: 50,
               ),
               InkWell(
                 onTap: () {
@@ -121,7 +118,7 @@ class register extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 50,
+                height: 10,
               ),
               Container(
                 margin: const EdgeInsets.all(2),
@@ -138,7 +135,7 @@ class register extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.off(() => terms());
+                      Get.to(() => terms());
                     },
                     child: Text(
                       'Terms',
@@ -157,7 +154,7 @@ class register extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.off(() => privacy());
+                      Get.to(() => privacy());
                     },
                     child: Text(
                       'Privacy Policy',
@@ -321,6 +318,7 @@ Widget _city({
           controller.city = value!.name.toString();
           controller.update();
         },
+
         buttonStyleData: ButtonStyleData(
           height: 50,
           width: width,

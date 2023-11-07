@@ -50,7 +50,7 @@ class PageOnBorarding extends StatelessWidget {
             footer: ElevatedButton(
               onPressed: () {
                 _storeOnboardInfo();
-                Get.to(() => Login());
+                Get.off(() => Login());
               },
               child: const Text('start quickly !'),
             ),
@@ -60,7 +60,7 @@ class PageOnBorarding extends StatelessWidget {
         done: const Text('Done', style: TextStyle(fontWeight: FontWeight.bold)),
         onDone: () {
           _storeOnboardInfo();
-          Get.to(() => Login());
+          Get.off(() => Login());
         },
         showSkipButton: true,
         skip: const Text('Skip'),

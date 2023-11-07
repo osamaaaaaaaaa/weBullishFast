@@ -1,23 +1,25 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_paypal/flutter_paypal.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
+import 'package:webullish_fast/Controller/AlertsController.dart';
 import 'package:webullish_fast/Services/ApiConst.dart';
 
 import '../Helper/AppHelper.dart';
 import '../Models/UserModel.dart';
 import '../Services/apiServices.dart';
 import '../View/Shared/bottomNavBar.dart';
-import '../View/Ui/Auth/register.dart';
 
 class subscribeController extends GetxController {
   User? user;
   subscribeController() {
     getUserProfile();
+    getToken();
   }
 
   getUserProfile() async {
@@ -40,6 +42,14 @@ class subscribeController extends GetxController {
     } catch (e) {
       print(e);
     }
+  }
+
+  String? token;
+  getToken() {
+    FirebaseMessaging.instance.getToken().then((value) {
+      token = value;
+      update();
+    });
   }
 
   Future<void> initPaymentSheet(context,
@@ -96,30 +106,38 @@ class subscribeController extends GetxController {
   }
 
   addUserSubscribe(planid) async {
+    alertsController ctr = Get.put(alertsController());
     try {
       ApiServices().postRequestMap(
         url: 'api/plan/checkoutPlan',
         body: {'plan_id': planid},
       ).then((value) {
-        if (value['error'] != null) {
-          AppHelper.errorsnackbar(value['error'].toString());
+        if (value['error'] == null) {
+          FirebaseMessaging.instance.subscribeToTopic('topic');
+          AppHelper.succssessnackbar('Succssess');
+          Get.off(() => bottomNavBar());
+          storeToken();
+          ctr.isSubscribe();
+
           return;
+        } else {
+          AppHelper.errorsnackbar(value['error'].toString());
         }
       });
-      FirebaseMessaging.instance.subscribeToTopic('topic');
-      AppHelper.succssessnackbar('');
-      Get.off(() => bottomNavBar());
     } catch (e) {
       print(e);
     }
   }
 
+  storeToken() async {
+    await ApiServices().postRequestMap(url: 'api/storeToken', body: {
+      'device': Platform.isAndroid ? 'android' : 'ios',
+      'device_token': token,
+    }).then((value) {});
+  }
+
   PayPalPay({required double amount, required String planId}) {
-    // if (user == null) {
-    //   Get.to(() => register());
-    //   return;
-    // }
-    UsePaypal(
+    Get.to(UsePaypal(
         sandboxMode: false,
         clientId:
             "AYNIZyJHoQbOCvaMBcz0dpujURWL0GOKi2PjCenYLUC4e_LAjyU4ut-N_kA15VdqKqJGNIvubvCpViEi",
@@ -177,6 +195,6 @@ class subscribeController extends GetxController {
         },
         onCancel: (params) {
           print('cancelled: $params');
-        });
+        }));
   }
 }

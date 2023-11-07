@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable, prefer_final_fields, non_constant_identifier_names, no_leading_underscores_for_local_identifiers
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -26,21 +27,41 @@ class AuthController extends GetxController {
   int? countryId;
   int? cityId;
   AuthController() {
+    isLogin();
+
     getCountries();
   }
-  log_in({required String Email, required String Pass}) async {
+
+  isLogin() async {
     SharedPreferences _prefs = await SharedPreferences.getInstance();
 
+    if (_prefs.getBool(StorageKey.isLogin) == true) {
+      if (_prefs.getString(StorageKey.email).toString() == 'guest@guest.com') {
+        return;
+      }
+      log_in(
+          Email: _prefs.getString(StorageKey.email).toString(),
+          Pass: _prefs.getString(StorageKey.pass).toString());
+    } else {}
+  }
+
+  log_in({required String Email, required String Pass}) async {
+    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    _loading();
     User _user = User(email: Email.trim(), password: Pass.trim());
     await _ApiServices.postRequestMap(url: apiConst.logIn, body: _user.toJson())
         .then((value) {
       if (value["error"] != null) {
+        Get.back();
         AppHelper.errorsnackbar(value.toString());
+
         return;
       } else {
         _box.write(StorageKey.token, value['access_token']);
         _prefs.setString(StorageKey.email, Email);
         _prefs.setString(StorageKey.pass, Pass);
+        _prefs.setBool(StorageKey.isLogin, true);
+
         Get.offAll(() => bottomNavBar());
       }
     });
@@ -64,6 +85,7 @@ class AuthController extends GetxController {
         credintial: model.toJson(),
       ).then((value) async {
         if (value.isNotEmpty && value['error'] != null) {
+          Get.back();
           AppHelper.errorsnackbar("signup:${value['error']}");
 
           return;
@@ -76,11 +98,13 @@ class AuthController extends GetxController {
         });
         prefs.setString(StorageKey.email, email);
         prefs.setString(StorageKey.pass, password);
+        prefs.setBool(StorageKey.isLogin, true);
 
         await prefs.setBool('islogin', true);
 
         _box.write(StorageKey.userdata, value);
         _box.write(StorageKey.token, value['access_token']);
+
         HomeController().handleBootmNabBar(0);
         Get.offAll(() => bottomNavBar());
 
@@ -119,6 +143,7 @@ class AuthController extends GetxController {
   _loading() {
     Get.defaultDialog(
         title: 'Loading',
+        backgroundColor: Colors.transparent,
         content: Center(
           child: CircularProgressIndicator(),
         ));

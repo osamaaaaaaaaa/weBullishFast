@@ -19,7 +19,7 @@ class terms extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: 20,
+              height: 40,
             ),
             Container(
               width: Get.width,
