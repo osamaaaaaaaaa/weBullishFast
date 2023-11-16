@@ -130,6 +130,7 @@ class subscribe extends StatelessWidget {
               //##################
               Container(
                 height: 500,
+                width: Get.width,
                 margin: const EdgeInsets.only(
                     right: 20, left: 20, top: 10, bottom: 10),
                 padding: const EdgeInsets.all(15),
@@ -216,23 +217,29 @@ class subscribe extends StatelessWidget {
                         )
                       ],
                     ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.circle,
-                          color: AppColors.gold,
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        const Text(
-                          'Accessible Analytics & Trackable Performance',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400),
-                        )
-                      ],
+                    Container(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.circle,
+                            color: AppColors.gold,
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Container(
+                            constraints:
+                                BoxConstraints(maxWidth: Get.width * 0.7),
+                            child: const Text(
+                              'Accessible Analytics & Trackable Performance',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     Row(
                       children: [
@@ -301,7 +308,7 @@ class subscribe extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             controller.PayPalPay(
-                                amount: 19.99, planId: 'plan_ORj99T19uWqvyU');
+                                amount: 20.00, planId: 'plan_ORj99T19uWqvyU');
                           },
                           child: button(
                               color: AppColors.gold,
@@ -341,7 +348,7 @@ class subscribe extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      '\$ 139.99',
+                      '\$ 140.00',
                       style: TextStyle(
                           color: AppColors.gold,
                           fontSize: 18,
