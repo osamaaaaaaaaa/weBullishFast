@@ -140,9 +140,9 @@ class subscribeController extends GetxController {
     Get.to(UsePaypal(
         sandboxMode: false,
         clientId:
-            "AYNIZyJHoQbOCvaMBcz0dpujURWL0GOKi2PjCenYLUC4e_LAjyU4ut-N_kA15VdqKqJGNIvubvCpViEi",
+            "AYmoHcZN7xSbH2I8fOjJUp_OfZNAWpvbHs-3COCWsEdx0NA-WfhV67HeWfSxtO-qqu6QV7RjZuFOQmZC",
         secretKey:
-            "EI-9pdBzS-Rjl-ooPbRzhFgtS30dYsGvnole6aJ6YyRXhPkAoIy8bWXsljGTB61yzRil18KS4xVsKgko",
+            "EGqjozHFNxNJbXksh3pNLdZx7D6DX1aXR-pph5_I0X4IGfSqieXywoZDVN67A6z3Lk7E0qBczMulMnj-",
         returnURL: "https://samplesite.com/return",
         cancelURL: "https://samplesite.com/cancel",
         transactions: [
