@@ -2,7 +2,7 @@ class AppImages {
   static const String _path = 'assets/images/';
   static const String logoDark = '${_path}Dark.png';
   static const String logoLight = '${_path}Logo Light.png';
-  static const String webullishLogo = '${_path}webullishlogo.png';
+  static const String mbullishLogo = '${_path}webullishlogo.png';
   static const String facebook = '${_path}facebook.png';
   static const String instgram = '${_path}instgram.png';
   static const String twitter = '${_path}twitter.png';

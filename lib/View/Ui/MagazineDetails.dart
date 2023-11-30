@@ -6,12 +6,16 @@ import '../../Helper/AppColors.dart';
 
 // ignore: must_be_immutable
 class MagazineDetails extends StatelessWidget {
-  late String image, body;
-  MagazineDetails({
-    Key? key,
-    required this.image,
-    required this.body,
-  }) : super(key: key);
+  String? image, body, author, name, datesend;
+
+  MagazineDetails(
+      {Key? key,
+      required this.image,
+      required this.body,
+      required this.author,
+      required this.name,
+      required this.datesend})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +33,7 @@ class MagazineDetails extends StatelessWidget {
               height: 20,
             ),
             Image.network(
-              image,
+              image.toString(),
               height: MediaQuery.of(context).size.height * 0.3,
             ),
             SizedBox(
@@ -41,9 +45,9 @@ class MagazineDetails extends StatelessWidget {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Description : ',
+                    'Name : ',
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: AppColors.gold),
                   ),
@@ -52,7 +56,7 @@ class MagazineDetails extends StatelessWidget {
                   margin: EdgeInsets.only(top: 10),
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    body,
+                    name.toString(),
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
@@ -60,6 +64,81 @@ class MagazineDetails extends StatelessWidget {
             ),
             const SizedBox(
               height: 20,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Description : ',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.gold),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    body.toString(),
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Author : ',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.gold),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    author.toString(),
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Date send : ',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.gold),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    datesend.toString(),
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

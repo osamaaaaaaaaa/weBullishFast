@@ -315,6 +315,10 @@ class Home extends StatelessWidget {
                               itemBuilder: (context, index) => InkWell(
                                 onTap: () {
                                   Get.to(() => MagazineDetails(
+                                      name: snapshot.data?[index]["name"],
+                                      author: snapshot.data?[index]["author"],
+                                      datesend: snapshot.data?[index]
+                                          ["datesend"],
                                       image: snapshot.data?[index]["image"],
                                       body: snapshot.data?[index]
                                           ["description"]));
@@ -369,7 +373,7 @@ class Home extends StatelessWidget {
 
                       if (snapshot.hasData) {
                         return SizedBox(
-                            height: 250,
+                            height: 260,
                             // width: 250,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
@@ -393,7 +397,7 @@ class Home extends StatelessWidget {
                                           //     .toString())
                                           acheviment(
                                               date: snapshot.data?[index]
-                                                  ["created_at"],
+                                                  ["name"],
                                               title: snapshot.data?[index]
                                                   ["description"])),
                                 ),
@@ -432,7 +436,7 @@ class Home extends StatelessWidget {
 
                       if (snapshot.hasData) {
                         return SizedBox(
-                            height: 260,
+                            height: 280,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemCount: snapshot.data?.length,
@@ -489,7 +493,7 @@ class Home extends StatelessWidget {
                     right: 10,
                   ),
                   child: Text(
-                    'Why webullish..?',
+                    'Why mbullish..?',
                     style: TextStyle(
                         color: AppColors.gold,
                         fontSize: 22,
@@ -537,7 +541,7 @@ _setting({required context}) => showMaterialModalBottomSheet(
                       await SharedPreferences.getInstance();
                   preferences.clear();
 
-                  Get.offAll(() => Login());
+                  Get.off(() => Login());
                 },
                 child: Row(
                   children: [

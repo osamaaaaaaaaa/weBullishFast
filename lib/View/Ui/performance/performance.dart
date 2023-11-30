@@ -21,7 +21,7 @@ class performance extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  TopAppBar(title: 'Webullish Performance'),
+                  TopAppBar(title: 'mbullish Performance'),
                   const SizedBox(
                     height: 50,
                   ),
@@ -52,7 +52,7 @@ class performance extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height - 310,
+                    height: MediaQuery.of(context).size.height - 315,
                     child: ListView.builder(
                       itemCount: controller.performanceList.length,
                       itemBuilder: (context, index) => _widget(

@@ -19,7 +19,7 @@ class whywebullish extends StatelessWidget {
         _widget(Icons.attach_money_outlined, 'Rapid Updates',
             '''Our experts are working around the clock to deliver stock alerts as quickly as possible. The quality of a stock can change at a moment’s notice, which is why being swift in providing our members with updates is of the utmost importance.'''),
         _widget(Icons.attractions, 'Unbeatable Value',
-            '''Averaging over 100 well-researched stock alerts per month, members of webullish.com are only tasked with paying a sum that breaks down to \$1 a day. You would be hard-pressed to find such a profitable deal anywhere else!'''),
+            '''Averaging over 100 well-researched stock alerts per month, members of mbullish.com are only tasked with paying a sum that breaks down to \$1 a day. You would be hard-pressed to find such a profitable deal anywhere else!'''),
       ],
     );
   }
@@ -27,7 +27,8 @@ class whywebullish extends StatelessWidget {
 
 Widget _widget(IconData icon, title, substitle) => Container(
       width: Get.width,
-      height: 300,
+      // height: 310,
+      padding: EdgeInsets.all(10),
       margin: EdgeInsets.all(20),
       decoration: BoxDecoration(
           color: AppColors.grey,

@@ -42,12 +42,15 @@ class HomeController extends GetxController {
   StreamController Acheviments = BehaviorSubject();
   StreamController Teams = BehaviorSubject();
 
-  HomeController() {
+  Widget content = Home();
+
+  @override
+  void onInit() {
     init();
     getPerformance();
     getUserProfile();
+    super.onInit();
   }
-  Widget content = Home();
 
   init() {
     getTopNoti();
@@ -56,10 +59,10 @@ class HomeController extends GetxController {
     getWeeklyMagazin();
     getAchivement();
     getTeams();
-    // getInstaLive();
-    // gettwitterLive();
-    // getyoutubeLive();
-    // getfaceLive();
+    getInstaLive();
+    gettwitterLive();
+    getyoutubeLive();
+    getfaceLive();
     getSocialPages();
   }
 

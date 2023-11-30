@@ -133,7 +133,9 @@ class subscribeController extends GetxController {
     await ApiServices().postRequestMap(url: 'api/storeToken', body: {
       'device': Platform.isAndroid ? 'android' : 'ios',
       'device_token': token,
-    }).then((value) {});
+    }).then((value) {
+      Get.defaultDialog(content: SelectableText(token.toString()));
+    });
   }
 
   PayPalPay({required double amount, required String planId}) {

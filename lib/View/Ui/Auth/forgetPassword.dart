@@ -27,7 +27,7 @@ class ForgetPassword extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              Image.asset(AppImages.webullishLogo),
+              Image.asset(AppImages.mbullishLogo),
               const SizedBox(
                 height: 30,
               ),

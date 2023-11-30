@@ -23,7 +23,11 @@ class Login extends StatelessWidget {
               const SizedBox(
                 height: 60,
               ),
-              Image.asset(AppImages.webullishLogo),
+              Image.asset(
+                AppImages.mbullishLogo,
+                height: 200,
+                width: 350,
+              ),
               const SizedBox(
                 height: 30,
               ),

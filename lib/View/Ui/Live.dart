@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:webullish_fast/View/Shared/videoPlayer.dart';
 
 import '../../../Models/LiveModel.dart';
 import '../../Controller/HomeController.dart';
@@ -35,18 +37,51 @@ class live extends StatelessWidget {
                       child: ListView.builder(
                         itemCount: list.length,
                         itemBuilder: (context, index) => InkWell(
-                          onTap: () {
-                            // Get.to(() => OneVideoCtrl(
-                            //     name: list[index].description.toString(),
-                            //     url: list[index].link.toString()));
+                          onTap: () async {
+                            try {
+                              await launchUrl(
+                                  Uri.parse(list[index].link.toString()));
+                            } catch (e) {}
                           },
                           child: Container(
                             padding: EdgeInsets.all(10),
                             margin: EdgeInsets.all(10),
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Text(list[index].createdAt.toString()),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Row(
+                              children: [
+                                Text(
+                                  '${(index + 1).toString()} -  ',
+                                  style: TextStyle(
+                                      fontSize: 20, color: AppColors.gold),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      constraints: BoxConstraints(
+                                          maxWidth: Get.width * 0.8),
+                                      child: Text(
+                                        list[index].description.toString(),
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: AppColors.grey),
+                                      ),
+                                    ),
+                                    Text(
+                                      list[index].createdAt.toString(),
+                                      style: TextStyle(
+                                          fontSize: 15, color: AppColors.gold),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

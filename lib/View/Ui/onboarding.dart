@@ -22,9 +22,9 @@ class PageOnBorarding extends StatelessWidget {
       body: IntroductionScreen(
         pages: [
           PageViewModel(
-            title: 'What is Webullish',
+            title: 'What is mbullish',
             body:
-                'Webullish.com is an online service that aims to study & identify bullish stock movements / technical breakouts in the stock market (NASDAQ& NYSE).',
+                'mbullish.com is an online service that aims to study & identify bullish stock movements / technical breakouts in the stock market (NASDAQ& NYSE).',
             image: Image.asset('assets/images/1.png'),
             decoration: getPageDecoration(),
           ),
@@ -36,7 +36,7 @@ class PageOnBorarding extends StatelessWidget {
             decoration: getPageDecoration(),
           ),
           PageViewModel(
-            title: 'Why webullish !',
+            title: 'Why mbullish !',
             body:
                 'Easy To Follow: Our Stock alerts are formulated in such a way that traders from all backgrounds can use them for their own trading. Even for Option traders.',
             image: Image.asset('assets/images/3.png'),
@@ -45,7 +45,7 @@ class PageOnBorarding extends StatelessWidget {
           PageViewModel(
             title: 'Spotting Bullish Trends !',
             body:
-                'webullish has the best chart reading expert/s in the field. We have developed a unique chart reading strategy to pinpoint “breakout & breakdown” areas.',
+                'mbullish has the best chart reading expert/s in the field. We have developed a unique chart reading strategy to pinpoint “breakout & breakdown” areas.',
             image: Image.asset('assets/images/4.png'),
             footer: ElevatedButton(
               onPressed: () {

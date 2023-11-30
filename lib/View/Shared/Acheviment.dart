@@ -10,9 +10,21 @@ Widget acheviment({required title, required date}) => Container(
           border: Border.all(color: AppColors.gold),
           borderRadius: BorderRadius.circular(15),
           color: AppColors.grey),
-      child: Text(
-        title,
-        style: TextStyle(
-            color: AppColors.gold, fontSize: 16, fontWeight: FontWeight.w400),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+                color: AppColors.gold,
+                fontSize: 16,
+                fontWeight: FontWeight.w400),
+          ),
+          Text(
+            date,
+            style: TextStyle(
+                color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ],
       ),
     );

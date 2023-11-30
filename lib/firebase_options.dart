@@ -53,17 +53,18 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyDbBh0q-IBQg0EryLYonwsP24iH4G6qh9U',
     appId: '1:708892247921:android:b01f1ff113c0ec322898d0',
     messagingSenderId: '708892247921',
-    projectId: 'webullish-14c86',
-    storageBucket: 'webullish-14c86.appspot.com',
+    projectId: 'mbullish-14c86',
+    storageBucket: 'mbullish-14c86.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDJsSQ8rVnfen7kB5nPWrsEfP0fPdU8yUI',
     appId: '1:708892247921:ios:44aba1fe9c7850d82898d0',
     messagingSenderId: '708892247921',
-    projectId: 'webullish-14c86',
-    storageBucket: 'webullish-14c86.appspot.com',
-    androidClientId: '708892247921-2ck7tu5fk5n90p4u3s8qqd1h8m9sbu2b.apps.googleusercontent.com',
-    iosBundleId: 'com.example.webullishFast',
+    projectId: 'mbullish-14c86',
+    storageBucket: 'mbullish-14c86.appspot.com',
+    androidClientId:
+        '708892247921-2ck7tu5fk5n90p4u3s8qqd1h8m9sbu2b.apps.googleusercontent.com',
+    iosBundleId: 'com.example.mbullishFast',
   );
 }

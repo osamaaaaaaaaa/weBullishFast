@@ -21,7 +21,7 @@ class freetrial extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              TopAppBar(title: 'Webullish PRO'),
+              TopAppBar(title: 'mbullish PRO'),
               SizedBox(
                 height: 30,
               ),
@@ -44,14 +44,14 @@ class freetrial extends StatelessWidget {
                   right: 10,
                 ),
                 child: const Text(
-                  'With more techy bells n’ webullish than our free version.',
+                  'With more techy bells n’ mbullish than our free version.',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.w400),
                 ),
               ),
-              _titles(free: 'Webullish\n    FREE', pro: 'Webullish\n     PRO'),
+              _titles(free: 'mbullish\n    FREE', pro: 'mbullish\n     PRO'),
               _widget(
                   title: 'Well Researched Alerts',
                   icon1: Icons.check,
@@ -94,7 +94,7 @@ class freetrial extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(10),
                 child: const Text(
-                  'Webullish Pro subscription for 19.99\$/month automatically charged after trial ends. you can cancel anytime',
+                  'mbullish Pro subscription for 19.99\$/month automatically charged after trial ends. you can cancel anytime',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
