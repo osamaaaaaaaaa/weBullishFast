@@ -21,10 +21,10 @@ List characters = [
           "We are full time stock traders & technical analysts from the SW Suburbs of Chicago!  We absolutely love swing trading, but never make it look easy. We understand that stock trading is a challenge, but we are up for the task. Bilal & AJ both come with over 5 years of experience in the stock market with a proven track record. We have a physical office location in Palos Heights, IL. Members, and Non-members are always welcome to visit, and get to know us!",
       colors: [Colors.orange.shade200, Colors.deepOrange.shade400]),
   Character(
-      name: "mbullish.com",
+      name: "Mbullish.com",
       imagePath: "assets/images/Agnes_gru.png",
       description:
-          "mbullish.com is an online service dedicated to seeking out and identifying recent bullish stock movements, as well as technical breakouts in both the NASDAQ and NYSE. This information is then conveyed in a matter that allows stock traders of all levels to effortlessly gather vital insight. All resources on mbullish.com are meant for informational purposes only, as we are not financial advisors.",
+          "Mbullish.com is an online service dedicated to seeking out and identifying recent bullish stock movements, as well as technical breakouts in both the NASDAQ and NYSE. This information is then conveyed in a matter that allows stock traders of all levels to effortlessly gather vital insight. All resources on Mbullish.com are meant for informational purposes only, as we are not financial advisors.",
       colors: [Colors.pink.shade200, Colors.redAccent.shade400]),
   Character(
       name: "Achievement",

@@ -21,7 +21,7 @@ class performance extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  TopAppBar(title: 'mbullish Performance'),
+                  TopAppBar(title: 'Mbullish Performance'),
                   const SizedBox(
                     height: 50,
                   ),

@@ -116,7 +116,7 @@ class subscribeController extends GetxController {
           FirebaseMessaging.instance.subscribeToTopic('topic');
           AppHelper.succssessnackbar('Succssess');
           Get.off(() => bottomNavBar());
-          storeToken();
+          //storeToken();
           ctr.isSubscribe();
 
           return;

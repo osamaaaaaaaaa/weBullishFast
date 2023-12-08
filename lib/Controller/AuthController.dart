@@ -1,5 +1,7 @@
 // ignore_for_file: unused_local_variable, prefer_final_fields, non_constant_identifier_names, no_leading_underscores_for_local_identifiers
 
+import 'dart:io';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,6 +33,14 @@ class AuthController extends GetxController {
 
     getCountries();
   }
+  String? token;
+  getToken() {
+    FirebaseMessaging.instance.getToken().then((value) {
+      token = value;
+      update();
+      storeToken();
+    });
+  }
 
   isLogin() async {
     SharedPreferences _prefs = await SharedPreferences.getInstance();
@@ -49,11 +59,13 @@ class AuthController extends GetxController {
     SharedPreferences _prefs = await SharedPreferences.getInstance();
     _loading();
     User _user = User(email: Email.trim(), password: Pass.trim());
+    print(_user.toJson());
     await _ApiServices.postRequestMap(url: apiConst.logIn, body: _user.toJson())
         .then((value) {
       if (value["error"] != null) {
         Get.back();
-        AppHelper.errorsnackbar(value.toString());
+        print(value);
+        AppHelper.errorsnackbar('LogIn ${value.toString()}');
 
         return;
       } else {
@@ -61,9 +73,19 @@ class AuthController extends GetxController {
         _prefs.setString(StorageKey.email, Email);
         _prefs.setString(StorageKey.pass, Pass);
         _prefs.setBool(StorageKey.isLogin, true);
-
+        getToken();
         Get.offAll(() => bottomNavBar());
       }
+    });
+  }
+
+  storeToken() async {
+    await ApiServices().postRequestMap(url: 'api/storeToken', body: {
+      'device': Platform.isAndroid ? 'android' : 'ios',
+      'device_token': token,
+    }).then((value) {
+      print(value);
+      // AppHelper.errorsnackbar('token ${value}');
     });
   }
 

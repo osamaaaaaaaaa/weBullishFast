@@ -493,7 +493,7 @@ class Home extends StatelessWidget {
                     right: 10,
                   ),
                   child: Text(
-                    'Why mbullish..?',
+                    'Why Mbullish..?',
                     style: TextStyle(
                         color: AppColors.gold,
                         fontSize: 22,
@@ -541,7 +541,7 @@ _setting({required context}) => showMaterialModalBottomSheet(
                       await SharedPreferences.getInstance();
                   preferences.clear();
 
-                  Get.off(() => Login());
+                  Get.offAll(() => Login());
                 },
                 child: Row(
                   children: [
